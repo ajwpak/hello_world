@@ -1,0 +1,13 @@
+[ec2-jenkins]
+3.101.147.32
+
+[ec2-jenkins:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/Downloads/mackey.pem
+
+[ec2-webserver]
+54.183.213.241
+
+[ec2-webserver:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/Downloads/mackey.pem

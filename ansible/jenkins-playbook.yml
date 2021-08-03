@@ -1,0 +1,26 @@
+---
+
+- name: Configure Jenkins
+  hosts: ec2-jenkins
+  
+  tasks:
+    - name: Install Required Java
+      apt:
+        update_cache: true
+        name: openjdk-11-jdk
+      become: true
+
+    - name: Install Jenkins
+      shell: |
+        wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+        sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+        /etc/apt/sources.list.d/jenkins.list'
+        sudo apt-get update -y
+        sudo apt-get install jenkins -y
+    
+    - name: Run Jenkins
+      shell: /etc/init.d/jenkins start
+      become: true
+
+
+
