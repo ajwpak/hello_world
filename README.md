@@ -1,0 +1,1 @@
+This is a simple Hello World project that utilizes Terraform, Ansible, Jenkins, Docker.
