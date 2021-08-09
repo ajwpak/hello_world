@@ -14,14 +14,14 @@
       apt:
         name: docker.io
 
-    - name: Install docker python sdk
+    - name: Install Docker Python SDK
       shell: |
         pip3 install docker
         
     - name: Start Docker
-      shell: |
-        systemctl start docker
-        systemctl enable docker
-    
+      service:
+        name: docker
+        state: started
+        enabled: true
 
 
